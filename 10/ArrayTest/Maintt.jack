@@ -1,0 +1,25 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/10/ArrayTest/Main.jack
+
+// (identical to projects/09/Average/Main.jack)
+
+/** Computes the average of a sequence of integers. */
+class Maintt {
+    function void main() {
+        var Array a;
+        var int i,t;
+	let t = 666;
+	do Output.printString("THE AVERAGE IS: ");
+	
+	let t = 5;
+	let a = Array.new(t);
+	let i = 0;
+	
+	let a[i] = 555;
+	let i = a[2+3];
+	
+	return;
+    }
+}

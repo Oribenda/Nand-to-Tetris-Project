@@ -1,0 +1,67 @@
+class Player {
+
+    field int xInitialPos, yInitialPos, yCurrentPos, radius, score;
+
+    constructor Player new(int Ix, int Iy) {
+        let xInitialPos = Ix;
+        let yInitialPos = Iy;
+        let yCurrentPos = yInitialPos;
+        let radius = 10;
+        let score = 0;
+        do Screen.setColor(true);
+        do Screen.drawCircle(xInitialPos, yInitialPos, radius);
+        return this;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void moveUp() {
+        do Screen.setColor(false);
+        do Screen.drawCircle(xInitialPos, yCurrentPos, radius);
+        if(~(yCurrentPos = radius)) {
+            let yCurrentPos  = yCurrentPos - 1;
+            do Screen.setColor(true);
+            do Screen.drawCircle(xInitialPos, yCurrentPos, radius);
+        }
+        if(yCurrentPos = radius) {
+            do moveToBeginning();
+            let score = score + 1;
+        }
+        return;
+    }
+
+    method void moveDown() {
+        if(~(yCurrentPos > yInitialPos)) {
+            do Screen.setColor(false);
+            do Screen.drawCircle(xInitialPos, yCurrentPos, radius);
+            let yCurrentPos  = yCurrentPos + 1;
+            do Screen.setColor(true);
+            do Screen.drawCircle(xInitialPos, yCurrentPos, radius);
+        }
+        return;
+    }
+
+    method void moveToBeginning() {
+        do Screen.setColor(false);
+        do Screen.drawCircle(xInitialPos, yCurrentPos, radius);
+        let yCurrentPos  = yInitialPos;
+        do Screen.setColor(true);
+        do Screen.drawCircle(xInitialPos, yCurrentPos, radius);
+        return;
+    }
+
+    method int getXCurrentPos() {
+        return xInitialPos;
+    }
+
+    method int getYCurrentPos() {
+        return yCurrentPos;
+    }
+
+    method int getScore() {
+        return score;
+    }
+}

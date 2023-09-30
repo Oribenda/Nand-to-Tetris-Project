@@ -1,0 +1,15 @@
+class Utils {
+
+    function int distance(int x1, int y1, int x2, int y2) {
+        var int difX, difY, difXSquare, difYSquare, distanceSquare;
+        let difX = Math.abs(x1 - x2);
+        let difXSquare = difX * difX;
+        let difY = Math.abs(y1 - y2);
+        let difYSquare = difY * difY;
+        let distanceSquare = difXSquare + difYSquare;
+        if(distanceSquare < 0) {
+            let distanceSquare = 32767;
+        }
+        return Math.sqrt(distanceSquare);
+    }
+}

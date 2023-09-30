@@ -1,0 +1,120 @@
+class StartWindow{
+    field int i;
+
+    constructor StartWindow new(){
+        let i =0;
+        
+        return this;
+
+    }
+    
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+    
+
+    method void showWindow()
+    {
+        var boolean exit;
+        var int key;
+        var Game game;
+        let exit = false;
+
+        do Screen.clearScreen();
+        do Output.moveCursor(0,20);
+        do Output.printString("welcome to Cars! ");
+        do Output.println();
+        do Output.moveCursor(7,0);
+        do Output.printString("to start playing press 'Enter' ");
+        do Output.println();
+        do Output.printString("to quit playing press 'q' at any time");
+        do Output.println();
+        do Output.printString("blabla");
+        do Output.println();
+
+
+        while(~exit) {
+            let key = Keyboard.keyPressed();
+            if(key = 128) {
+                let exit = true;
+            }
+        }
+        return;
+
+    }
+
+
+    do Output.printString("      ______          ");
+    do Output.printString("     /|_||_\`.__       ");
+    do Output.printString("    (   _    _ _\     ");
+    do Output.printString("     =`-(_)--(_)-'     ");
+
+
+     
+    do Output.printString("                _______            ");
+    do Output.printString("               //  ||\ \           ");
+    do Output.printString("         _____//___||_\ \___       ");
+    do Output.printString("         )  _          _    \      ");
+    do Output.printString("         |_/ \________/ \___|     ");
+    do Output.printString("        ___\_/________\_/______   ");
+
+
+
+
+        _______
+       //  ||\ \
+ _____//___||_\ \___
+ )  _          _    \
+ |_/ \________/ \___|
+___\_/________\_/______
+
+   
+
+  ______  
+ /|_||_\`.__
+(   _    _ _\
+=`-(_)--(_)-'  
+
+
+
+
+    do Output.printString("__   __   __   __   __   __");
+    do Output.printString("__   __   __   __   __   __");
+    do Output.printString("__   __   __   __   __   __");
+
+}
+
+
+
+rt by myflix
+                       .-----.
+                       |     '
+                       |     |
+                       |    ;
+                       |    |
+        ------------------|'-..
+       |                  |    ``-..
+       |  ,__             |         ``-..
+       |  \. | ,__  ,__   |  ,_         |
+       |   | |  \ |  \ |  |  \ '-----.  |
+       |   | |  //  ,'/  .'   |_____ | .'
+       |   | | //  / /   |         | | |
+       |   | '//__/ /    |    .    | | |
+       |   |     _.-     |   /|    | |.'
+       :_   ---''        |  | |    |/ |
+        `:'-.._         .'  '.|    '  |
+          `.   ``-.._   |        _,,,'
+            `.       ``-|.---''''.-'
+              `._      /     ,-'`
+       _, -      `.   /mx_.-'     --,_
+     ,'  _,-''''-- `./,-' --''''-,_   ',
+   __ __'         .   '- ''-. `    ',   )
+  / // /___ ___  ___..__.__.-'
+ / _  /__ `/ _ \/ _ \/ // /....__....-'`
+/_//_/\_,_/ .__/ .__/\_, /___...
+         /_/  /_/   /___/
+   __ __               __    __        __
+  / // /__ ____  __ __/ /__ / /_____ _/ /
+ / _  / _ `/ _ \/ // /  '_//  '_/ _ `/ _ \
+/_//_/\_,_/_//_/\_,_/_/\_\/_/\_\\_,_/_//_/

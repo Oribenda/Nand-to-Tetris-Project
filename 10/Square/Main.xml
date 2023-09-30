@@ -1,0 +1,39 @@
+<class>
+<KEYWORD> class </KEYWORD>
+<IDENTIFIER> Main </IDENTIFIER>
+<SYMBOL> { </SYMBOL>
+<classVarDec>
+<KEYWORD> static </KEYWORD>
+<KEYWORD> boolean </KEYWORD>
+<IDENTIFIER> test </IDENTIFIER>
+<SYMBOL> ; </SYMBOL>
+</classVarDec>
+<subroutibeDec>
+<KEYWORD> function </KEYWORD>
+<KEYWORD> void </KEYWORD>
+<IDENTIFIER> main </IDENTIFIER>
+<SYMBOL> ( </SYMBOL>
+<SYMBOL> ) </SYMBOL>
+<subroutineBody>
+<SYMBOL> { </SYMBOL>
+<varDec>
+<KEYWORD> var </KEYWORD>
+<IDENTIFIER> SquareGame </IDENTIFIER>
+<IDENTIFIER> game </IDENTIFIER>
+<SYMBOL> ; </SYMBOL>
+</varDec>
+<statements>
+<letStatement>
+<KEYWORD> let </KEYWORD>
+<IDENTIFIER> game </IDENTIFIER>
+<SYMBOL> = </SYMBOL>
+<expression>
+<term>
+<IDENTIFIER> SquareGame </IDENTIFIER>
+<SYMBOL> . </SYMBOL>
+<IDENTIFIER> new </IDENTIFIER>
+<SYMBOL> ( </SYMBOL>
+<expressionList>
+</expressionList>
+<SYMBOL> ) </SYMBOL>
+</term>

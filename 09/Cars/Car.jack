@@ -1,0 +1,63 @@
+class Car {
+    
+    field int xInitialPos, xCurrentPos, yInitialPos, speed, direction, radius;
+
+    constructor Car new(int Ix, int Iy, int s, int d, int r) {
+        let xInitialPos = Ix;
+        let xCurrentPos = xInitialPos;
+        let yInitialPos = Iy;
+        let speed = s;
+        let direction = d;
+        let radius = r;
+        do Screen.setColor(true);
+        do Screen.drawCircle(xInitialPos, yInitialPos, radius);
+        return this;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void moveCar() {
+
+        do Screen.setColor(false);
+        do Screen.drawCircle(xCurrentPos, yInitialPos, radius);
+
+        if(direction = 0) {     // if direction is left
+            if(xCurrentPos > (30 + radius)) {
+                let xCurrentPos = xCurrentPos - speed;
+            }
+            if(~(xCurrentPos > (30 + radius))) {
+                let direction = 1;
+                let xCurrentPos = xCurrentPos + speed;
+            }
+        }
+        if(direction = 1) {     // if direction is right
+            if(xCurrentPos < (478 - radius)) {
+                let xCurrentPos = xCurrentPos + speed;
+            }
+            if(~(xCurrentPos < (478 - radius))) {
+                let direction = 0;
+                let xCurrentPos = xCurrentPos - speed;
+            }
+        }
+
+        do Screen.setColor(true);
+        do Screen.drawCircle(xCurrentPos, yInitialPos, radius);
+
+        return;
+    }
+
+    method int getXCurrentPos() {
+        return xCurrentPos;
+    }
+
+    method int getYCurrentPos() {
+        return yInitialPos;
+    }
+
+    method int getRadius() {
+        return radius;
+    }
+}

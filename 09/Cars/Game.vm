@@ -1,0 +1,515 @@
+function Game.new 5
+push constant 6
+call Memory.alloc 1
+pop pointer 0
+call Screen.clearScreen 0
+pop temp 0
+push constant 120
+push constant 240
+call Player.new 2
+pop this 0
+push constant 388
+push constant 240
+call Player.new 2
+pop this 1
+push constant 0
+pop this 2
+push constant 0
+pop this 3
+push constant 16
+pop this 4
+push this 4
+call Array.new 1
+pop this 5
+push constant 3
+pop local 3
+push constant 0
+push this 5
+add
+push constant 254
+push constant 128
+add
+push constant 153
+push constant 1
+push constant 0
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push this 5
+add
+push constant 254
+push constant 151
+add
+push constant 42
+push constant 1
+push constant 0
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push this 5
+add
+push constant 254
+push constant 208
+add
+push constant 203
+push constant 1
+push constant 0
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push this 5
+add
+push constant 254
+push constant 117
+add
+push constant 187
+push constant 1
+push constant 0
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push this 5
+add
+push constant 254
+push constant 177
+add
+push constant 51
+push constant 1
+push constant 0
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push this 5
+add
+push constant 254
+push constant 120
+add
+push constant 102
+push constant 1
+push constant 0
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push this 5
+add
+push constant 254
+push constant 206
+add
+push constant 117
+push constant 1
+push constant 0
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push this 5
+add
+push constant 254
+push constant 32
+add
+push constant 175
+push constant 1
+push constant 0
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 8
+push this 5
+add
+push constant 254
+push constant 128
+sub
+push constant 153
+push constant 1
+push constant 1
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 9
+push this 5
+add
+push constant 254
+push constant 151
+sub
+push constant 42
+push constant 1
+push constant 1
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 10
+push this 5
+add
+push constant 254
+push constant 208
+sub
+push constant 203
+push constant 1
+push constant 1
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 11
+push this 5
+add
+push constant 254
+push constant 117
+sub
+push constant 187
+push constant 1
+push constant 1
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 12
+push this 5
+add
+push constant 254
+push constant 177
+sub
+push constant 51
+push constant 1
+push constant 1
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 13
+push this 5
+add
+push constant 254
+push constant 120
+sub
+push constant 102
+push constant 1
+push constant 1
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 14
+push this 5
+add
+push constant 254
+push constant 206
+sub
+push constant 117
+push constant 1
+push constant 1
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 15
+push this 5
+add
+push constant 254
+push constant 32
+sub
+push constant 175
+push constant 1
+push constant 1
+push local 3
+call Car.new 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+return
+function Game.dispose 2
+push argument 0
+pop pointer 0
+push this 0
+call Player.dispose 1
+pop temp 0
+push this 1
+call Player.dispose 1
+pop temp 0
+push constant 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push this 4
+lt
+not
+if-goto WHILE_END0
+push local 0
+push this 5
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 1
+call Car.dispose 1
+pop temp 0
+goto WHILE_EXP0
+label WHILE_END0
+push this 5
+call Array.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function Game.moveAllCars 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 1
+label WHILE_EXP0
+push local 1
+push this 4
+lt
+not
+if-goto WHILE_END0
+push local 1
+push this 5
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 0
+call Car.moveCar 1
+pop temp 0
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function Game.checkIfHit 10
+push argument 0
+pop pointer 0
+push constant 10
+pop local 1
+push constant 0
+push this 5
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 0
+call Car.getRadius 1
+pop local 2
+push local 1
+push local 2
+add
+pop local 3
+push argument 1
+call Player.getXCurrentPos 1
+pop local 4
+push argument 1
+call Player.getYCurrentPos 1
+pop local 5
+push constant 0
+pop local 9
+label WHILE_EXP0
+push local 9
+push this 4
+lt
+not
+if-goto WHILE_END0
+push local 9
+push this 5
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 0
+call Car.getXCurrentPos 1
+pop local 6
+push local 0
+call Car.getYCurrentPos 1
+pop local 7
+push local 4
+push local 6
+sub
+call Math.abs 1
+push local 3
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 5
+push local 7
+sub
+call Math.abs 1
+push local 3
+lt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push local 4
+push local 5
+push local 6
+push local 7
+call Utils.distance 4
+pop local 8
+push local 8
+push local 3
+lt
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+not
+return
+label IF_FALSE2
+label IF_FALSE1
+label IF_FALSE0
+push local 9
+push constant 1
+add
+pop local 9
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function Game.run 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push constant 0
+pop local 1
+label WHILE_EXP0
+push local 1
+not
+not
+if-goto WHILE_END0
+call Keyboard.keyPressed 0
+pop local 0
+push local 0
+push constant 87
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+call Player.moveUp 1
+pop temp 0
+label IF_FALSE0
+push local 0
+push constant 83
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 0
+call Player.moveDown 1
+pop temp 0
+label IF_FALSE1
+push local 0
+push constant 131
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 1
+call Player.moveUp 1
+pop temp 0
+label IF_FALSE2
+push local 0
+push constant 133
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 1
+call Player.moveDown 1
+pop temp 0
+label IF_FALSE3
+push local 0
+push constant 81
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push constant 0
+not
+pop local 1
+call Screen.clearScreen 0
+pop temp 0
+label IF_FALSE4
+push constant 5
+call Sys.wait 1
+pop temp 0
+push pointer 0
+call Game.moveAllCars 1
+pop temp 0
+push pointer 0
+push this 0
+call Game.checkIfHit 2
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push this 0
+call Player.moveToBeginning 1
+pop temp 0
+label IF_FALSE5
+push pointer 0
+push this 1
+call Game.checkIfHit 2
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push this 1
+call Player.moveToBeginning 1
+pop temp 0
+label IF_FALSE6
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return

@@ -1,0 +1,135 @@
+class Game {
+
+    field Player player1, player2;
+    field int scorePlayer1, scorePlayer2, numberOfCars;
+    field Array cars;
+
+    constructor Game new() {
+        var int i, direction, pixelOffset, carRadius, arrayOffset;
+        do Screen.clearScreen();
+        let player1 = Player.new(120, 240);
+        let player2 = Player.new(388, 240);
+        let scorePlayer1 = 0;
+        let scorePlayer2 = 0;
+        let numberOfCars = 16;
+        let cars = Array.new(numberOfCars);
+        let carRadius = 3;
+
+        let cars[0]  = Car.new(254 + 128, 153, 1, 0, carRadius);
+        let cars[1]  = Car.new(254 + 151, 42,  1, 0, carRadius);
+        let cars[2]  = Car.new(254 + 208, 203, 1, 0, carRadius);
+        let cars[3]  = Car.new(254 + 117, 187, 1, 0, carRadius);
+        let cars[4]  = Car.new(254 + 177, 51,  1, 0, carRadius);
+        let cars[5]  = Car.new(254 + 120, 102, 1, 0, carRadius);
+        let cars[6]  = Car.new(254 + 206, 117, 1, 0, carRadius);
+        let cars[7]  = Car.new(254 + 32,  175, 1, 0, carRadius);
+
+        let cars[8]  = Car.new(254 - 128, 153, 1, 1, carRadius);
+        let cars[9]  = Car.new(254 - 151, 42,  1, 1, carRadius);
+        let cars[10] = Car.new(254 - 208, 203, 1, 1, carRadius);
+        let cars[11] = Car.new(254 - 117, 187, 1, 1, carRadius);
+        let cars[12] = Car.new(254 - 177, 51,  1, 1, carRadius);
+        let cars[13] = Car.new(254 - 120, 102, 1, 1, carRadius);
+        let cars[14] = Car.new(254 - 206, 117, 1, 1, carRadius);
+        let cars[15] = Car.new(254 - 32,  175, 1, 1, carRadius);
+
+        return this;
+    }
+
+    method void dispose() {
+        var int i;
+        var Car selectedCar;
+        do player1.dispose();
+        do player2.dispose();
+        let i = 0;
+        while(i < numberOfCars) {
+            let selectedCar = cars[i];
+            do selectedCar.dispose();
+        }
+        do cars.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    
+
+    method void moveAllCars() {
+        var Car selectedCar;
+        var int i;
+        let i = 0;
+        while(i < numberOfCars) {
+            let selectedCar = cars[i];
+            do selectedCar.moveCar();
+            let i = i + 1;
+        }
+        return;
+    }
+
+    method boolean checkIfHit(Player p) {
+        var Car selectedCar;
+        var int playerRadius, carRadius, minDistance, xPlayerPos, yPlayerPos, xCarPos, yCarPos, distance, i;
+        let playerRadius = 10;  // fix to getRadius() method
+        let selectedCar = cars[0];
+        let carRadius = selectedCar.getRadius();
+        let minDistance = playerRadius + carRadius;
+        let xPlayerPos = p.getXCurrentPos();
+        let yPlayerPos = p.getYCurrentPos();
+        let i = 0;
+        while(i < numberOfCars) {
+            let selectedCar = cars[i];
+            let xCarPos = selectedCar.getXCurrentPos();
+            let yCarPos = selectedCar.getYCurrentPos();
+            if(Math.abs(xPlayerPos - xCarPos) < minDistance) {
+                if(Math.abs(yPlayerPos - yCarPos) < minDistance) {
+                    let distance = Utils.distance(xPlayerPos, yPlayerPos, xCarPos, yCarPos);
+                    if(distance < minDistance) {
+                        return true;
+                    }
+                }
+            }
+            let i = i + 1;
+        }
+        return false;
+    }
+
+    method void run() {
+        var char key;   // the key currently pressed by the user
+        var boolean exit;
+        let key = 0;
+        let exit = false;
+
+        while(~exit) {
+            let key = Keyboard.keyPressed();
+            if(key = 87) {
+                do player1.moveUp();
+            }
+            if(key = 83) {
+                do player1.moveDown();
+            }
+            if(key = 131) {
+                do player2.moveUp();
+            }
+            if(key = 133) {
+                do player2.moveDown();
+            }
+            if(key = 81) {
+                let exit = true;
+                do Screen.clearScreen();
+               // do dispose();
+             
+            }
+            do Sys.wait(5);
+
+            do moveAllCars();
+
+            if(checkIfHit(player1)) {
+                do player1.moveToBeginning();
+            }
+
+            if(checkIfHit(player2)) {
+                do player2.moveToBeginning();
+            }
+        }
+        return;
+    }
+}
