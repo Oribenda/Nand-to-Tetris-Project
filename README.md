@@ -7,4 +7,4 @@ Through this course, I've built a complete computer system from the ground up, s
 
 One of the highlights of this project is the creation of the "Cars" game, which we developed to run on the computer system we built. This game showcases the power and versatility of the computer we constructed from first principles.
 
-<img src="cars.gif" alt="cars GIF" width="400" height="300" style="display:block; margin:auto;" loop="true">
+<img src="cars_open.gif" alt="cars GIF" width="400" height="300" style="display:block; margin:auto;" loop="true"><img src="cars_play.gif" alt="cars GIF" width="400" height="300" style="display:block; margin:auto;" loop="true">
